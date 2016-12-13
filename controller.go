@@ -69,6 +69,10 @@ func (t *TorControl) Dial(network, addr string) error {
 	return nil
 }
 
+func (t *TorControl) Close() error {
+	return t.controlConn.Close()
+}
+
 func (t *TorControl) SendCommand(command string) (int, string, error) {
 	var code int
 	var message string
